@@ -29,7 +29,8 @@ module SearchHelper
     event_details = {
       name: event["name"]["text"],
       date: event["start"]["local"],
-      image_url: event["logo"]["url"]
+      image_url: event["logo"]["url"],
+      event_url: event["url"]
     }
   end 
 
