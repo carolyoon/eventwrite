@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180215001939) do
+ActiveRecord::Schema.define(version: 20180215191959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(version: 20180215001939) do
     t.string "event_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "journal_entries", force: :cascade do |t|
+    t.text "content"
+    t.integer "rating"
+    t.bigint "author_id"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_journal_entries_on_author_id"
+    t.index ["event_id"], name: "index_journal_entries_on_event_id"
   end
 
   create_table "users", force: :cascade do |t|
