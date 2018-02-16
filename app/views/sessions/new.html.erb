@@ -1,0 +1,10 @@
+<div class="login-form">   
+  <%= form_for :session, url: sessions_new_path, :html => { :class => "input-text" } do |f| %>
+  <%= f.text_field :email, placeholder: "Email", :class => 'input-text' %>
+  <%= f.text_field :password, placeholder: "Password", :class => "input-text" %>
+  <%= f.submit "Sign In", :id => 'login-button' %>
+
+  <p class="message">Not registered?</p>
+    <%= link_to "Create an account", new_user_path %>
+  <% end %>
+</div>
