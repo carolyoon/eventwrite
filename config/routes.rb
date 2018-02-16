@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   resources :search 
 
+  resources :user
+
+  resources :sessions, only: [:create, :destroy]
+
   root 'search#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
