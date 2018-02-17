@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   include SessionsHelper
 
   before_action :authorize, only: [:show]

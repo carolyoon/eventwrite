@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :search 
 
-  resources :user
+  resources :users, only: [:new, :show]
 
   resources :sessions, only: [:create, :destroy]
 
