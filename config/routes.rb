@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :search 
 
   resources :users, only: [:new, :show]
+  post 'users/new', to: 'search#index'
 
   resources :sessions, only: [:create, :destroy]
 
