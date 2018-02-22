@@ -22,7 +22,8 @@ module SearchHelper
   end
 
   def self.parse_events(response)
-    response.map! { |event| event_details(event) }
+    response = response.map! { |event| event_details(event) }
+    response.map! { |event_details| Event.find_or_create_by(event_details) }
   end 
 
   def self.event_details(event) 

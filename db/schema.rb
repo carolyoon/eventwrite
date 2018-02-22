@@ -35,13 +35,12 @@ ActiveRecord::Schema.define(version: 20180215191959) do
 
   create_table "journal_entries", force: :cascade do |t|
     t.text "content"
-    t.integer "rating"
     t.bigint "author_id"
-    t.bigint "event_id"
+    t.bigint "attendance_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["attendance_id"], name: "index_journal_entries_on_attendance_id"
     t.index ["author_id"], name: "index_journal_entries_on_author_id"
-    t.index ["event_id"], name: "index_journal_entries_on_event_id"
   end
 
   create_table "users", force: :cascade do |t|
