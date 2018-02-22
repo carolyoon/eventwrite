@@ -1,4 +1,7 @@
-
+<%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_user_path %>
+<% if logged_in? %>
+  <%= link_to "Past Event Entries", user_path(@current_user) %>
+<% end %>
 
 <h1>Eventwrite</h1>
 

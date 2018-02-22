@@ -4,7 +4,7 @@
 
 <h3>Create an Account</h3>
 <div class="registration-form">
-  <%= form_for @user, url: {action: "new"}, :html => { :class => "input-text"} do |f| %>
+  <%= form_for @user, url: {action: "create"}, :html => { :class => "input-text"} do |f| %>
   <%= f.text_field :first_name, placeholder: "First Name", :class => "input-text" %>
   <%= f.text_field :last_name, placeholder: "Last Name", :class => "input-text" %><br><br>
   <%= f.text_field :email, placeholder: "Email", :class => "input-text" %><br><br>
@@ -14,5 +14,5 @@
 </div>
 
 <div class="login-option">
-  <p>Have an account? <%= link_to 'Log in', sessions_new_path %> </p>
+  <p>Have an account? <%= link_to 'Log in', new_session_path %></p>
 </div>
