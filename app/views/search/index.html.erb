@@ -6,9 +6,9 @@
 <h1>Eventwrite</h1>
 
 <h3>Search for a past event</h3>
-<%= form_tag(search_index_path, method: :get) do %>
+<%= form_tag(events_path, method: :get) do %>
   <%= text_field_tag :term, params[:term], placeholder: "Keyword" %>
   <%= text_field_tag :location, params[:location], placeholder: "Location" %>
-  <%= text_field_tag :date, params[:date], placeholder: "Date"%>
+  <%= text_field_tag :date, params[:date], placeholder: "Date" %>
   <%= submit_tag 'Search', name: nil %>
 <% end %>
