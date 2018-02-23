@@ -1,0 +1,9 @@
+<img src="<%= @event.image_url %>" alt="event-image">
+<h1><%= @event.name %></h1>
+
+<p>Date: <%= DateTime.now.strftime("%a. %l/%d/%Y") %></p>
+
+<%= form_for @journal_entry, url: {action: "create"}, :html => { :class => "input-text"} do |f|%>
+  <%= f.hidden_field :attendance_id, :value => @attendance.id %>
+  <%= f.text_area :content, placeholder: "Your entry here", :class => "input-text" %>
+<% end %>

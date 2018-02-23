@@ -1,17 +1,17 @@
-<% if !logged_in? %>
-  <%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_user_path %>
 <% if logged_in? %>
-  <%= link_to "Past Event Entries", user_path(@current_user) %>
+  <%= link_to "Past Event Entries", user_path(@current_user) %> | <%= link_to "Log Out", session_path(@current_user), method: :delete %>
+<% else %>
+  <%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_user_path %>
 <% end %>
 
 <h1>Eventwrite</h1>
-<% if logged_in %>
-  <h2>Welcome, <%= @current_user.first_name %>!</h2>
+<% if logged_in? %>
+  <h2>Welcome, <%= @current_user.first_name.capitalize %>!</h2>
 <% end %>
 
 <h3>Search for a past event</h3>
 <%= form_tag(events_path, method: :get) do %>
-  <%= text_field_tag :term, params[:term], placeholder: "Keyword" %>
+  <%= text_field_tag :keyword, params[:keyword], placeholder: "Keyword" %>
   <%= text_field_tag :location, params[:location], placeholder: "Location" %>
   <%= text_field_tag :date, params[:date], placeholder: "Date" %>
   <%= submit_tag 'Search', name: nil %>
