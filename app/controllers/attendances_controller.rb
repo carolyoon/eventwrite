@@ -15,6 +15,12 @@ class AttendancesController < ApplicationController
     end
   end
 
+  def show
+    @attendance = Attendance.find(params[:id])
+    @event = @attendance.event
+    @journal_entry = JournalEntry.new
+  end
+
   private
 
     def attended?
