@@ -13,6 +13,6 @@
 <%= form_tag(events_path, method: :get) do %>
   <%= text_field_tag :keyword, params[:keyword], placeholder: "Keyword" %>
   <%= text_field_tag :location, params[:location], placeholder: "Location" %>
-  <%= text_field_tag :date, params[:date], placeholder: "YYYY-MM-DD" %>
+  <%= text_field_tag :date, params[:date], placeholder: "Date" %>
   <%= submit_tag 'Search', name: nil %>
 <% end %>
