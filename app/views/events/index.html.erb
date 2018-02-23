@@ -2,8 +2,8 @@
 
 <% @events.each do |event| %>
   <a href="<%= event.event_url %>"><img src="<%= event.image_url %>" alt=""></a>  
-  <% if current_user.attended_events.include?(event) %>
-    <p>I attended this event</p>
+  <% if current_user.events_attended.include?(event) %>
+    <%= link_to 'Write a journal entry for this event', attendance_path(id: find_attendance(current_user.id, event.id)) %>
   <% else %>
     <%= link_to 'I attended this event', attendances_path(event_id: event.id), method: :post %>
   <% end %>
