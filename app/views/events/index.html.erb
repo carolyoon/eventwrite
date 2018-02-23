@@ -1,12 +1,13 @@
 <h1>Results </h1>
 
 <% @events.each do |event| %>
-  <%= link_to event_path(event) do %>
-    <%= image_tag "#{event.image_url}" %>
+  <a href="<%= event.event_url %>"><img src="<%= event.image_url %>" alt=""></a>  
+  <% if current_user.attended_events.include?(event) %>
+    <p>I attended this event</p>
+  <% else %>
+    <%= link_to 'I attended this event', attendances_path(event_id: event.id), method: :post %>
   <% end %>
-
-   <p><%= event.date.strftime("%a, %b %d %l:%M %p") %></p>
+   <p><%= event.date.strftime("%a. %b %d %l:%M %p") %></p>
    <p><%= event.name %></p>
-   <p><%= event.event_url %></p>
 <% end %>
 

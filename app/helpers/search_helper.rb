@@ -9,8 +9,7 @@ module SearchHelper
   default_params "start_date.range_end".to_sym => DateTime.now.to_s[0..-7]
 
   def self.event_search(location, keyword, start_date)
-    p "*" * 80
-    p response = self.get('', query: { q: keyword, 
+    response = self.get('', query: { q: keyword, 
                                      "location.address".to_sym => location,
                                      "start_date.range_start".to_sym => start_date.to_s[0..-7] })["events"]
 
