@@ -1,12 +1,12 @@
-<% if !logged_in? %>
-  <%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_user_path %>
 <% if logged_in? %>
-  <%= link_to "Past Event Entries", user_path(@current_user) %>
+  <%= link_to "Past Event Entries", user_path(@current_user) %> | <%= link_to "Log Out", session_path(@current_user), method: :delete %>
+<% else %>
+  <%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_user_path %>
 <% end %>
 
 <h1>Eventwrite</h1>
-<% if logged_in %>
-  <h2>Welcome, <%= @current_user.first_name %>!</h2>
+<% if logged_in? %>
+  <h2>Welcome, <%= @current_user.first_name.capitalize %>!</h2>
 <% end %>
 
 <h3>Search for a past event</h3>

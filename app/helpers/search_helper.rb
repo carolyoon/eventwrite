@@ -17,26 +17,18 @@ module SearchHelper
 
   private
 
-  def self.parse_date(date)
-    date.to_s[0..-7]
-  end
+    def self.parse_events(response)
+      response = response.map! { |event| event_details(event) }
+      response.map! { |event_details| Event.find_or_create_by(event_details) }
+    end 
 
-  def self.parse_events(response)
-    response = response.map! { |event| event_details(event) }
-    response.map! { |event_details| Event.find_or_create_by(event_details) }
-  end 
-
-  def self.event_details(event) 
-    event_details = {
-      name: event["name"]["text"],
-      date: event["start"]["local"],
-      image_url: event["logo"]["url"],
-      event_url: event["url"]
-    }
-  end 
+    def self.event_details(event) 
+      event_details = {
+        name: event["name"]["text"],
+        date: event["start"]["local"],
+        image_url: event["logo"]["url"],
+        event_url: event["url"]
+      }
+    end 
 
 end
-
-# create event and user and attendances model
-# make associations
-# implement search form 
