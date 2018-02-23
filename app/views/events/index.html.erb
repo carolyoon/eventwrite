@@ -1,8 +1,11 @@
 <h1>Results </h1>
 
 <% @events.each do |event| %>
-   <img src="<%= event.image_url %>" alt="event-image">
-   <p><%= event.date.strftime("%a, %b %e %l:%M %p") %></p>
+  <%= link_to event_path(event) do %>
+    <%= image_tag "#{event.image_url}" %>
+  <% end %>
+
+   <p><%= event.date.strftime("%a, %b %d %l:%M %p") %></p>
    <p><%= event.name %></p>
    <p><%= event.event_url %></p>
 <% end %>
