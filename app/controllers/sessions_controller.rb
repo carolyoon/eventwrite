@@ -3,13 +3,13 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(email: session_params[:email])
+    p "*" * 100
+    p params
     if @user && @user.authenticate(session_params[:password])
       session[:user_id] = @user.id
-      p "*" * 100
-      p "wtf"
       redirect_to search_index_path
     else
-      redirect_to root_path, :notice => "Invalid email or password."
+      redirect_to new_session_path, :notice => "Invalid email or password."
     end
   end
 
@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
   private
 
   def session_params
-    params.require(:session).permit(:email, :password)
+    params.require(:sessions).permit(:email,:password)
   end
 
 end

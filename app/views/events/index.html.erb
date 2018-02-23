@@ -1,3 +1,8 @@
+<h1>Results </h1>
+
 <% @events.each do |event| %>
+   <img src="<%= event.image_url %>" alt="event-image">
+   <p><%= event.date.strftime("%m/%d/%Y") %></p>
    <p><%= event.name %></p>
+   <p><%= event.event_url %></p>
 <% end %>

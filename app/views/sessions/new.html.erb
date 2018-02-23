@@ -1,11 +1,12 @@
 <h1>Log in to Eventwrite</h1>
 
 <div class="login-form">   
-  <%= form_for :sessions, url: sessions_path, :html => { :class => "input-text" } do |f| %>
+  <%= form_for :sessions, url: sessions_path, :html => {:class => "input-text"} do |f| %>
   <%= f.email_field :email, placeholder: "Email", :class => 'input-text' %><br>
   <%= f.password_field :password, placeholder: "Password", :class => "input-text" %><br><br>
   <%= f.submit "Log in", :id => 'login-button' %>
-
+  
   <p class="message">New to Eventwrite? <%= link_to "Sign up now", new_user_path %></p>
   <% end %>
+
 </div>
