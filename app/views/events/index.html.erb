@@ -2,7 +2,8 @@
 
 <% @events.each do |event| %>
    <img src="<%= event.image_url %>" alt="event-image">
-   <p><%= event.date.strftime("%m/%d/%Y") %></p>
+   <p><%= event.date.strftime("%a, %b %e %l:%M %p") %></p>
    <p><%= event.name %></p>
    <p><%= event.event_url %></p>
 <% end %>
+

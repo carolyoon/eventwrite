@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20180215191959) do
 
   create_table "events", force: :cascade do |t|
     t.string "name"
-    t.string "date"
+    t.datetime "date"
     t.string "image_url"
     t.string "event_url"
     t.datetime "created_at", null: false
